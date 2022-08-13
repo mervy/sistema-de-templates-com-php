@@ -1,0 +1,33 @@
+{
+    "name": "mervy/sistema-de-templates-com-php",
+    "description": "Como criar um sitema de templates com PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rogério Soares",
+            "email": "rgrsoares@yahoo.com.br",
+            "homepage": "https://gkult.net",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app//"
+        }
+    },
+    "repositories": {
+        "sistema-de-templates-com-php": {
+            "type": "github",
+            "url": "https://github.com/mervy/sistema-de-templates-com-php.git"
+        }
+    },
+    "require": {
+        "php": ">=8.1"
+    },
+    "scripts": {
+        "server": "php -S localhost:8000 -t public"
+    },
+    "config": {
+        "process-timeout": 0
+    }
+}
