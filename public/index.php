@@ -1,15 +1,8 @@
 <?php
+ini_set("display_errors", 1);
 
-$data = ['name' => 'Rogério Soares'];
+session_start();
 
-ob_start();
+require "../vendor/autoload.php";
 
-extract($data);
-
-require "home.php";
-
-$content =  ob_get_contents();
-
-ob_end_clean();
-
-var_dump('content', $content);
+routerExecute();
