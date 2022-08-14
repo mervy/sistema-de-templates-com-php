@@ -1,5 +1,6 @@
 <?php
 
+use App\framework\classes\Engine;
 use App\framework\classes\Router;
 
 function path()
@@ -21,4 +22,15 @@ function routerExecute()
     } catch (Throwable $th) {
         var_dump($th->getMessage());
     }
+}
+
+function view(string $view, array $data = [])
+{
+    try {
+       $engine = new Engine();
+       echo $engine->render($view, $data);
+    } catch (Throwable $th) {
+        var_dump($th->getMessage());
+    }
+
 }

@@ -2,10 +2,14 @@
 
 namespace App\controllers;
 
-Class HomeController {
+class HomeController
+{
 
-    public function index(){
-       var_dump('home');
+    public function index()
+    {
+        view('home', [
+            'name' => 'Rogério Soares',
+            'email' => 'rgrsoares@yahoo.com.br'
+        ]);
     }
-
 }
