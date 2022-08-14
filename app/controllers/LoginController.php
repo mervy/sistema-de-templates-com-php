@@ -13,4 +13,9 @@ class LoginController
 
         var_dump($data);
     }
+
+    public function store()
+    {
+        var_dump('login');
+    }
 }

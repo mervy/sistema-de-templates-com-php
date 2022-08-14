@@ -8,7 +8,7 @@
     <title>Clube Full-Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- AnimateCSS -->
-    <link rel="stylesheet" href="./assets/css/global.css"> <!-- Referência do CSS Global -->
+    <link rel="stylesheet" href="./assets/styles/global.css"> <!-- Referência do CSS Global -->
     <script src="https://unpkg.com/feather-icons"></script> <!-- Biblioteca do Feather Icons -->
 </head>
 
@@ -16,7 +16,7 @@
     <main class="container">
         <section class="container-left">
             <article class="logo-img">
-                <img src="./assets/img/logo_login.png" alt="Clube Full-Stack">
+                <img src="assets/images/logo_login.png" alt="Clube Full-Stack">
             </article>
 
             <article class="logo-text">
@@ -29,14 +29,15 @@
 
             <h1>Faça seu login</h1>
 
-            <form class="form-login" method="post" action="/login">
+            <form class="form-login">
                 <div>
                     <label>Usuário:</label>
                     <input type="text" name="email" placeholder="Ex.: usuarioteste" class="input input-dark">
                 </div>
                 <div id="passwordContainer">
                     <label>Senha:</label>
-                    <input id="password" name="password" type="password" placeholder="Ex.: senhateste" class="input input-dark">
+                    <input id="password" name="password" type="password" placeholder="Ex.: senhateste"
+                        class="input input-dark">
                     <i data-feather="eye-off" class="iconFeather"></i>
                 </div>
                 <button class="btn btn-login">Entrar</button>
@@ -44,4 +45,5 @@
         </section>
     </main>
 </body>
+
 </html>
