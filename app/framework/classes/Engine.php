@@ -7,9 +7,6 @@ use Exception;
 class Engine
 {
 
-    public function teste(){
-        echo "teste do this";
-    }
     public function render(string $view, array $data)
     {
         $view = dirname(__FILE__, 2) . "/resources/views/{$view}.php";

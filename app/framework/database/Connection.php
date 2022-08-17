@@ -16,7 +16,7 @@ class Connection
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
             ]);
         } else {
-            throw new PDOException("Error Processing Request", 1);
+            throw new PDOException("Connection is already open somewhere", 1);
         }
 
         return self::$connection;

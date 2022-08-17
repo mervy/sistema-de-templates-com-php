@@ -2,6 +2,8 @@
 
 namespace App\controllers;
 
+use App\framework\database\Connection;
+
 class HomeController
 {
 
@@ -10,6 +12,6 @@ class HomeController
         view('home', [
             'name' => 'Rogério Soares',
             'email' => 'rgrsoares@yahoo.com.br'
-        ]);
+        ]);     
     }
 }

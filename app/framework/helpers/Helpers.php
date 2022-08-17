@@ -30,7 +30,7 @@ function view(string $view, array $data = [])
        $engine = new Engine();
        echo $engine->render($view, $data);
     } catch (Throwable $th) {
-        var_dump($th->getMessage());
+        var_dump($th->getMessage());        
     }
 
 }

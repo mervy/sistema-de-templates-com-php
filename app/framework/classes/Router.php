@@ -30,7 +30,7 @@ class Router
         if (!class_exists($controllerNamespace)) {
             throw new Exception("The controller {$controllerNamespace} not exist");
         }
-        if(!method_exists($controllerNamespace, $action)){
+        if (!method_exists($controllerNamespace, $action)) {
             throw new Exception("The action {$controllerNamespace} not exist in controller {$controllerNamespace}");
         }
     }
@@ -43,7 +43,16 @@ class Router
         $this->routerFound($routes);
 
         //Divide o controller HomeController@index em duas partes
-        list($controller, $action) = explode('@', $routes[$this->request][$this->path]);
+        [$controller, $action] = explode('@', $routes[$this->request][$this->path]);
+
+        //Lógica para boquear as páginas com :auth no arquivo routes.php
+        if (str_contains($action, ':')) {
+            [$action, $auth] = explode(':', $action);
+
+            if (!isset($_SESSION['logged'])) {
+                return redirect('/');
+            }
+        }
 
         $controllerNamespace = "App\\controllers\\{$controller}";
 
