@@ -49,9 +49,7 @@ class Router
         if (str_contains($action, ':')) {
             [$action, $auth] = explode(':', $action);
 
-            if (!isset($_SESSION['logged'])) {
-                return redirect('/');
-            }
+            Auth::check($auth);
         }
 
         $controllerNamespace = "App\\controllers\\{$controller}";
