@@ -27,10 +27,14 @@ function routerExecute()
 function view(string $view, array $data = [])
 {
     try {
-       $engine = new Engine();
-       echo $engine->render($view, $data);
+        $engine = new Engine();
+        echo $engine->render($view, $data);
     } catch (Throwable $th) {
-        var_dump($th->getMessage());        
+        var_dump($th->getMessage());
     }
+}
 
+function redirect(string $to)
+{
+    return header('Location: ' . $to);
 }
