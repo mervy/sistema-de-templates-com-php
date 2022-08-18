@@ -6,7 +6,10 @@ class DashBoardController
 {
     public function index()
     {
-        var_dump("Estou na Dashboard protegida");
-        var_dump($_SESSION);
+        view('dashboard_home', 
+        [
+           'title' => "Dashboard - Home",
+           'css' => 'custom.css'
+        ]);
     }
 }
