@@ -8,15 +8,11 @@ class Auth
 {
     public static function check(string $type)
     {
-        switch ($type) {
-            case 'auth':
-                if (!isset($_SESSION['logged'])) {
-                    return redirect('/');
-                }
-                break;
-            default:
-                throw new Exception("Error accessing protected page ".__CLASS__, 1);                
-                break;
-        }
+        $sessionValue = $_SESSION['logged'];
+        return match($type){
+            'auth'=> !isset($sessionValue) ? redirect('/') : '',           
+        default =>
+            throw new Exception("Error accessing protected page ".__CLASS__, 1)      
+        };
     }
 }
