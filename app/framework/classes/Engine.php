@@ -3,12 +3,14 @@
 namespace App\framework\classes;
 
 use Exception;
+use ReflectionClass;
 
 class Engine
 {
     private ?string $layout;
     private string $content;
     private array $data;
+    private array $dependencies;
 
     private function load()
     {
@@ -19,6 +21,27 @@ class Engine
     {
         $this->layout = $layout;
         $this->data = $data;
+    }
+
+    public function dependencies(array $dependencies)
+    {
+        foreach ($dependencies as $dependency) {
+            $className =  strtolower((new ReflectionClass($dependency))->getShortName());
+            $this->dependencies[$className] = $dependency;
+        }
+    }
+
+    public function __call(string $name, array $params)
+    {
+        if (!method_exists($this->dependencies['macros'], $name)) {
+            throw new Exception("Macro {$name} does not exist");
+        }
+
+        if (empty($params)) {
+            throw new Exception("Method {$name} needs at least one parameter");
+        }
+
+        return $this->dependencies['macros']->$name($params[0]);
     }
 
     public function render(string $view, array $data)
@@ -35,14 +58,13 @@ class Engine
         $content = ob_get_contents();
         ob_end_clean();
 
-        if (!empty($this->layout)) {            
+        if (!empty($this->layout)) {
             $this->content = $content;
             //'Casa' o array do controller com o array das pages view
             $data = array_merge($this->data, $data);
             $layout = $this->layout;
             $this->layout = null; //Para não gerar looping infinito
             return $this->render($layout, $this->data);
-
         }
 
         return $content;
