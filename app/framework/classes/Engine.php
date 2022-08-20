@@ -11,6 +11,8 @@ class Engine
     private string $content;
     private array $data;
     private array $dependencies;
+    private array $section;
+    private string $actualSection;
 
     private function load()
     {
@@ -21,6 +23,23 @@ class Engine
     {
         $this->layout = $layout;
         $this->data = $data;
+    }
+
+    private function section(string $name)
+    {
+        echo $this->section[$name] ?? null;
+    }
+
+    private function start(string $name)
+    {
+        ob_start();
+        $this->actualSection = $name;
+    }
+
+    private function stop()
+    {
+        $this->section[$this->actualSection] = ob_get_contents();
+        ob_end_clean();
     }
 
     public function dependencies(array $dependencies)

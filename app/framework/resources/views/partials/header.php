@@ -5,3 +5,5 @@
             <?php endif?>
 
                 <h3>Bem-vindo!</h3>
+
+            <?php $this->section('cssHome')?>
