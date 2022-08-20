@@ -23,7 +23,7 @@
 
             <main class="container-section-principal-content">
 
-                <?= $this->load(); ?>
+                <?= $this->load(); ?>           
 
             </main>
 

@@ -41,7 +41,15 @@ class Engine
             throw new Exception("Method {$name} needs at least one parameter");
         }
 
-        return $this->dependencies['macros']->$name($params[0]);
+        if (count($params) > 1) {
+            // Usar assim: 
+            // public function resume(array $data){
+            // [$var1, $var2, $var3] = $data;
+            // }
+            return $this->dependencies['macros']->$name($params);
+        } else {
+            return $this->dependencies['macros']->$name($params[0]);
+        }
     }
 
     public function render(string $view, array $data)

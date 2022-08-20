@@ -20,8 +20,15 @@ class Macros
         return strtoupper($text);
     }
 
-    function resume(string $string, int $chars)
+    function resume(array $data)
     {
+        [$string, $chars] = $data;
         return mb_strimwidth($string, 0, $chars + 4, " ...");
+    }
+
+    function mostrarTresValores(array $data)
+    {
+        [$var1,$var2, $var3] = $data;
+        echo $var1. ' - '. $var2 . ' - '.$var3;
     }
 }
