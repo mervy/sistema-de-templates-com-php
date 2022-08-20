@@ -2,12 +2,6 @@
 
 <h2>Dashboard</h2>
 
-<?php $this->lower('QUE BUCETA GRANDE')?>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos expedita quod delectus officiis deserunt velit molestias doloribus minima neque, porro labore adipisci impedit vel tempora dolorem cumque eius modi repudiandae?</p>
 
-<?php $this->upper('grelo gostoso')?>
-
-<?php $this->resume('o rato roeu a roupa do rei de roma', 5)?>
-
-<?php $this->resume('o rato roeu a roupa do rei de roma', 10)?>
-
-<?php $this->resume('o rato roeu a roupa do rei de roma', 15)?>
+<P style="margin-top: 2%">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem alias et explicabo in quis quaerat dignissimos ex voluptas fugit facere nobis, eos dolores quidem labore facilis? Consequuntur, excepturi laborum? Deserunt!</P>

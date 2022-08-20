@@ -47,4 +47,10 @@ class LoginController
 
         return redirect('/dashboard');
     }
+    public function destroy()
+    {
+        session_destroy();
+
+        redirect('/');
+    }
 }
